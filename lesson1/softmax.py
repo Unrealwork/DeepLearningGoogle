@@ -7,11 +7,9 @@ import math
 
 
 def softmax(scores_array):
-    sum = 0
-    exp_arr = map(np.exp, scores_array)
-    for num in exp_arr:
-        sum += num
-    return np.asarray(map(lambda x: x / sum, exp_arr))
+    exp_array = map(np.exp, scores_array)
+    sum = np.sum(exp_array)
+    return np.asarray(map(lambda x: x / sum, exp_array))
 
 
 print(softmax(scores))
